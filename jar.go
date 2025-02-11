@@ -47,7 +47,7 @@ func ReadFile(jarFile string) (Manifest, error) {
 			return nil, err
 		}
 
-		return readManifestData(rc)
+		return ReadManifestData(rc)
 	}
 
 	return nil, ErrNotJAR
@@ -55,8 +55,8 @@ func ReadFile(jarFile string) (Manifest, error) {
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
-// readManifestData reads manifest data
-func readManifestData(r io.Reader) (Manifest, error) {
+// ReadManifestData reads manifest data
+func ReadManifestData(r io.Reader) (Manifest, error) {
 	m := make(Manifest)
 	s := bufio.NewScanner(r)
 
